@@ -12,7 +12,7 @@ import com.taikang.udp.mongo.context.MongoDBClient;
 public class InsertThread extends Thread {
 
 	@Override 
-	public void run() {
+	public void run() {  
 
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("mongo-config.xml");
