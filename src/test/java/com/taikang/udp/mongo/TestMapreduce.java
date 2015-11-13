@@ -31,7 +31,7 @@ public static final Logger logger = LoggerFactory.getLogger();
 		try{
 		MongoAggregation ma = new MongoAggregation();
 
-		ma.setGroup("company","height");
+		ma.setGroup("company","height"); 
 		//ma.setGroup("height");
 		
 		ma.addMatch(MongoCriteria.greaterThan("age", 20));

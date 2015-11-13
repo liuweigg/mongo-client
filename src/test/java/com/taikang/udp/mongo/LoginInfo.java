@@ -18,7 +18,7 @@ public class LoginInfo implements Serializable{
 	private String password;
 	public String getLoginId() {
 		return loginId;
-	}
+	} 
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 	}

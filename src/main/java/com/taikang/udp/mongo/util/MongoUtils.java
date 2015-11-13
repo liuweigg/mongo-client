@@ -14,7 +14,7 @@ import org.springframework.expression.TypedValue;
  * @see       [相关类/方法]
  * @since     [产品/模块版本]
  */
-public class MongoUtils {
+public class MongoUtils { 
 	//null
 	public static final TypedValue NULL = TypedValue.NULL;
 	

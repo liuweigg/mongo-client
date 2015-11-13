@@ -11,7 +11,7 @@ import com.taikang.udp.mongo.context.MongoDBClient;
 
 public class InsertThread extends Thread {
 
-	@Override
+	@Override 
 	public void run() {
 
 

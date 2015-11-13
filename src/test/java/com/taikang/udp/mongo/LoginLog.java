@@ -11,7 +11,7 @@ public class LoginLog {
 	}
 	public void setLogin_ip(String login_ip) {
 		this.login_ip = login_ip;
-	}
+	} 
 	public Date getLogin_date() {
 		return login_date;
 	}

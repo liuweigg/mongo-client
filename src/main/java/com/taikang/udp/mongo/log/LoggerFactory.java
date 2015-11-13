@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 public class LoggerFactory {
 	/**
 	 * get a slf4j logger without passing a class
-	 * @return
+	 * @return 
 	 */
 	public static Logger getLogger() {
         String name = new Exception().getStackTrace()[1].getClassName();

@@ -7,7 +7,7 @@ public class AggregationVo {
 	
 	private String as ;
 
-	public AggregationVo(){
+	public AggregationVo(){ 
 		
 	}
 	

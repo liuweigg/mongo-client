@@ -29,7 +29,7 @@ import com.taikang.udp.mongo.vo.AggregationVo;
  * @see       [相关类/方法]
  * @since     [产品/模块版本]
  */
-public class MongoAggregation {
+public class MongoAggregation { 
 	
 	private String[]  groupFields;			//group by 后的字段，即按照哪些字段进行分组
 	private List<AggregationVo> aggList ;	//select ... from 中间的字段，都为聚合函数，分组字段不需要额外声明；聚合函数的结果需要指定别名，并和查询结果接收对象的字段一致

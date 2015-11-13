@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * @see       [相关类/方法]
  * @since     [产品/模块版本]
  */
-public class PatternUtils {
+public class PatternUtils { 
 	
 	/**
 	 * like '%key%'

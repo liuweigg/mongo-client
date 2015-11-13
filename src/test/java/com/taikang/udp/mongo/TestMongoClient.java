@@ -29,7 +29,7 @@ public class TestMongoClient {
 		MongoDBClient client = context.getBean(MongoDBClient.class);
 		
 		//1.支持对象的插入
-		User user = new User();
+		User user = new User(); 
 		user.setName("WIKI");
 		user.setAge(15);
 		user.setCompany("IBM");

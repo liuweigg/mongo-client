@@ -23,7 +23,7 @@ import com.taikang.udp.mongo.util.MongoUtils;
  * 其中< name = 'user_name' > 相当于一个Criteria , < age > 30 >相当于另一个Criteria
  * 这两个Criteria 加上 'and' 条件组成了一个Query中的where语句
  * 
- * @author liuwei117
+ * @author liuwei117 
  * @version V1.0.0
  * @Credited 2015年10月19日 下午4:44:37
  * @see       [相关类/方法]

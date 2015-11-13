@@ -98,6 +98,9 @@ public class MongoStatusDBClient<T> {
     	}
     }
    
+    public void getCollections(){
+    	
+    }
     
 	public void setMongoTemplate(MongoTemplate mongoTemplate) {
 		this.mongoTemplate = mongoTemplate;

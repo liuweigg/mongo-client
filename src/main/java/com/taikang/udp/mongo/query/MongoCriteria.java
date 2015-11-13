@@ -18,7 +18,7 @@ import com.taikang.udp.mongo.util.PatternUtils;
  */
 public class MongoCriteria extends Criteria{
 
-	public MongoCriteria() {
+	public MongoCriteria() { 
 	}
 
 	/**

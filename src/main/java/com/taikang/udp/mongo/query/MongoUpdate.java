@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.query.Update;
 public class MongoUpdate {
 	private Update update ;
 	
-	public MongoUpdate(){
+	public MongoUpdate(){ 
 		update = new Update();
 	}
 

@@ -17,7 +17,7 @@ public class UserCount {
 	
 	private int avgAge;
 	
-	private String column ;
+	private String column ; 
 	
 	private String height ;
 

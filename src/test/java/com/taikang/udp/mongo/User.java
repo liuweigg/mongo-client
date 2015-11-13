@@ -21,7 +21,7 @@ public class User implements Serializable{
 	private String company ;
 	private int height ;
 	private int weight ;
-	private String aa;
+	private String aa; 
 	
 	private LoginInfo loginInfo ;
 	

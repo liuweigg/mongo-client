@@ -18,7 +18,7 @@
                    socket-keep-alive="true"
                    socket-timeout="1500"
                    slave-ok="true"
-                   write-number="1"
+                   write-number="1" 
                    write-timeout="0"
                    write-fsync="true"/> -->
 	<!--</mongo:mongo>-->
