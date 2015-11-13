@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p" 
+    xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   		http://www.springframework.org/schema/beans/spring-beans.xsd
+   			http://www.springframework.org/schema/data/mongo
+    		http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+	
+	<!-- Default bean name is 'mongo' -->
+	<!--<mongo:mongo id="replicaSetMongo" replica-set="localhost:28010,localhost:28011,localhost:28012">-->
+		<!-- <mongo:options connections-per-host="8"
+                   threads-allowed-to-block-for-connection-multiplier="4"
+                   connect-timeout="10000"
+                   max-wait-time="15000"
+                   auto-connect-retry="true"
+                   socket-keep-alive="true"
+                   socket-timeout="1500"
+                   slave-ok="true"
+                   write-number="1"
+                   write-timeout="0"
+                   write-fsync="true"/> -->
+	<!--</mongo:mongo>-->
+	<mongo:mongo host="localhost" port="27017"/>
+	<!--<mongo:mongo host="localhost" port="27017">
+		<mongo:options connections-per-host="8"
+                   threads-allowed-to-block-for-connection-multiplier="4"
+                   connect-timeout="10000"
+                   max-wait-time="15000"
+                   auto-connect-retry="true"
+                   socket-keep-alive="true"
+                   socket-timeout="1500"
+                   slave-ok="true"
+                   write-number="1"
+                   write-timeout="0"
+                   write-fsync="true"/>
+	</mongo:mongo>-->
+	
+	<!-- Offers convenience methods and automatic mapping between MongoDB JSON documents and your domain classes. -->
+  	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+  			<constructor-arg ref="mongo"/>
+		    <constructor-arg name="databaseName" value="newDB"/>
+  	</bean>
+  	
+  	<bean id="MongoDBClient" class="com.taikang.udp.mongo.context.MongoDBClient">
+		<property name="mongoTemplate" ref="mongoTemplate"></property>
+	</bean>
+	
+  	<bean id="MongoStatusDBClient" class="com.taikang.udp.mongo.context.MongoStatusDBClient">
+		<property name="mongoTemplate" ref="mongoTemplate"></property>
+	</bean>
+</beans>
