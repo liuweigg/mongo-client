@@ -34,7 +34,7 @@ public class TestMongoClient {
 		user.setAge(15);
 		user.setCompany("IBM");
 		user.setHeight(180);
-		user.setWeight(100);user.setAa("1111");
+		user.setWeight(100);
 		
 		//1.1直接执行insert(Object)，此时集合的名字和对象名字一致
 		client.insert(user);

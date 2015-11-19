@@ -30,7 +30,7 @@ public class TestMongoStatusClient {
 			ApplicationContext context = new ClassPathXmlApplicationContext("mongo-config.xml");
 			MongoStatusDBClient client = context.getBean(MongoStatusDBClient.class);
 			 
-			client.getIndexInfo();
+			client.getCollectionStatus("user");
 		}catch(Exception e){
 			e.printStackTrace();
 		}

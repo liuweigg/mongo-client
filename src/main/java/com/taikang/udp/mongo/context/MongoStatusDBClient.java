@@ -1,32 +1,19 @@
 package com.taikang.udp.mongo.context;
 
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.monitor.ServerInfo;
-
-import static com.taikang.udp.mongo.query.MongoCriteria.*;
-
 import org.springframework.stereotype.Repository;
 
 import com.mongodb.CommandResult;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
-import com.mongodb.Mongo;
-import com.mongodb.ReadPreference;
-import com.mongodb.WriteResult;
-import com.taikang.udp.mongo.User;
-import com.taikang.udp.mongo.UserCount;
 import com.taikang.udp.mongo.log.LoggerFactory;
-import com.taikang.udp.mongo.query.MongoAggregation;
-import com.taikang.udp.mongo.query.MongoQuery;
-import com.taikang.udp.mongo.query.MongoUpdate;
+import com.taikang.udp.mongo.vo.CollectionStats;
+import com.taikang.udp.mongo.vo.DBStats;
+import com.taikang.udp.mongo.vo.ServerStats;
 
 /**
  * 
@@ -51,55 +38,53 @@ public class MongoStatusDBClient<T> {
     /**
      * 
      */
-    public void getStatus(){
+    public ServerStats getServerStatus(){
     	try{
         	
     		ServerInfo si = new ServerInfo(mongoTemplate.getDb().getMongo());
-    		
-        	System.out.println("cr.toString() = " + si.getServerStatus());
+    		CommandResult cr = si.getServerStatus() ;
+        	
+        	ServerStats serverStats = new ServerStats();
+        	serverStats.populateCommandResult(cr);
+        	
+        	return serverStats;
     	}catch(Exception e){
+    		logger.error(e.getMessage());
     		e.printStackTrace();
+    		return null;
     	}
     }
     
-    public void getDBStatus(){
+    public DBStats getDBStatus(){
     	try{
         	
     		CommandResult cr = mongoTemplate.getDb().getStats();
     		
-        	System.out.println("cr.toString() = " + cr.toString());
+    		DBStats dbStats = new DBStats();
+    		dbStats.populateCommandResult(cr);
+    		
+    		return dbStats ;
     	}catch(Exception e){
+    		logger.error(e.getMessage());
     		e.printStackTrace();
+    		return null;
     	}
     }
     
-    public void getCollectionStatus(){
+    public CollectionStats getCollectionStatus(String collectionName){
     	try{
         	
-    		CommandResult cr = mongoTemplate.getDb().getCollection("user").getStats();
+    		CommandResult cr = mongoTemplate.getDb().getCollection(collectionName).getStats();
     		
-        	System.out.println("cr.toString() = " + cr.toString());
-    	}catch(Exception e){
-    		e.printStackTrace();
-    	}
-    }
-    
-    public void getIndexInfo(){
-    	try{
-        	
-    		List<DBObject> cr = mongoTemplate.getDb().getCollection("user").getIndexInfo();
+    		CollectionStats collectionStats = new CollectionStats();
+    		collectionStats.populateCommandResult(cr);
     		
-    		for(DBObject ob : cr){
-    			System.out.println("cr.toString() = " + ob.toString());
-    		}
-        	
+        	return collectionStats ;
     	}catch(Exception e){
+    		logger.error(e.getMessage());
     		e.printStackTrace();
+    		return null;
     	}
-    }
-   
-    public void getCollections(){
-    	
     }
     
 	public void setMongoTemplate(MongoTemplate mongoTemplate) {
